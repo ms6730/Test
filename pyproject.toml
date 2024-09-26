@@ -5,3 +5,25 @@ name="example"
 version="0.1.0"
 [project.optional-dependencies]
 test=["pytest"]
+
+on:
+workflow_dispatch:
+pull_requests:
+push:
+  branches:
+    -main
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+    -uses: actions/checkout@v4
+
+    -uses: actions/setup-puthon@v5
+    with:
+      python-version: 3.12
+    -name: Install package
+     run: pip install -e . [test]
+     -run: pytest
+     
+      
