@@ -1,0 +1,7 @@
+[build-system]
+requires=["hatchling"]
+[project]
+name="example"
+version="0.1.0"
+[project.optional-dependencies]
+test=["pytest"]
